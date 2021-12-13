@@ -25,7 +25,7 @@ class Hero extends Spaceship {
         }
     }
     retreat() {
-        console.log("You have run away to live another day. But They are still out there...")
+        console.log("You have run away to live another day. But THEY are still out there...")
     }
     death() {
         console.log("You have died. GAME OVER")
@@ -56,13 +56,18 @@ class Alien extends Spaceship {
 
 
 // ============ THE PLAYERS =================
-const enemyOne = new Alien('Roswell', '4', '3', '.6') //should be randomized?
+const enemyOne = new Alien('Roswell', '4', '3', '.6') //should be randomized*6?
 const usshw = new Spaceship('USS Hello World', '20', '5', '.7')
 // console.log(usshw)
 
 
-
-// enemy Squad
-// const squad = [enemyOne, enemyTwo, enemyThree, enemyFour, enemyFive, enemySix]
-
 // ============= TURNS? ========
+
+let battle = (usshw, Alien) => {
+    while (usshw.hull > 0) {
+        usshw.attack(Alien);
+        if(Alien.hull > 0) {
+            Alien.attack(usshw);
+        }
+    }
+}
