@@ -1,5 +1,4 @@
-
-//first spaceship = USS Hello World - setting up our Spaceship
+//Setting up the Spaceship - main for everyone
 
 class Spaceship {
     constructor(name, hull, firepower, accuracy) {
@@ -10,20 +9,60 @@ class Spaceship {
     }
 }
 
-const usshw = new Spaceship ('USS Hello World', '20', '5', '.7')
-console.log(usshw)
+// ========== this is the Player Character ship ==========
 
-const enemyOne = new Spaceship ('Roswell', '4', '3', '.6')
-console.log(enemyOne)
-
-//enemy squad here extended from spaceship
-class Enemies extends Spaceship (name, hull, firepower, accuracy) {
-    super(name, hull, firepower, accuracy)
+class Hero extends Spaceship {
+    constructor(name, hull, firepower, accuracy) {
+        super(name, hull, firepower, accuracy)
+    }
+    attack() {
+        console.log("Alien has attacked!")
+        usshw.hull -= this.firepower;
+        if (usshw.hull > 0) {
+            console.log(`You have taken damage! Current hull strength has dropped to ${usshw.hull}!`);
+        } else {;
+            console.log(usshw.death);
+        }
+    }
+    retreat() {
+        console.log("You have run away to live another day. But They are still out there...")
+    }
+    death() {
+        console.log("You have died. GAME OVER")
+    }
 }
 
 
-// let spaceship = () => {
-//     function attack () {
-//         //the attack function will go here later?
-//     }
-// }
+// =============Alien here extended from spaceship ===================
+
+class Alien extends Spaceship {
+    constructor(name, hull, firepower, accuracy) {
+        super(name, hull, firepower, accuracy)
+    }
+    attack() {
+        console.log("You attacked the alien!")
+        Alien.hull -= this.firepower;
+        if (Alien.hull > 0) {
+            console.log(`They have taken damage! Their current hull strength has dropped to ${Alien.hull}!`);
+        } else {
+            console.log("This alien has been destroyed.");
+            console.log(Alien.death);
+        }
+    }
+    death() {
+        console.log("The Alien has died.")
+    };
+}
+
+
+// ============ THE PLAYERS =================
+const enemyOne = new Alien('Roswell', '4', '3', '.6') //should be randomized?
+const usshw = new Spaceship('USS Hello World', '20', '5', '.7')
+// console.log(usshw)
+
+
+
+// enemy Squad
+// const squad = [enemyOne, enemyTwo, enemyThree, enemyFour, enemyFive, enemySix]
+
+// ============= TURNS? ========
