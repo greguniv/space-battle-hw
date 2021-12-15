@@ -1,5 +1,4 @@
 // =================================== DOM QUERIES
-// const enemyStats = document.querySelector("#enemyStats")
 
 console.log("Ready to deploy.")
 
@@ -17,13 +16,7 @@ const hero = {
             target.hull = target.hull - this.firepower;
             console.log(`Enemy has ${target.hull} hit points left!`);
             if (target.hull <= 0) {
-                // console.log("You destroyed this enemy! Retreat?");
                 update();
-                // const userInput = prompt("You destroyed this enemy! Retreat?")
-                // if (userInput === 'yes') {
-                //     console.log("We will retreat and live to see another day.");
-                //     location.reload();
-                // }
             }
         } else {
             console.log("Your shot missed! Prepare for evasive maneuvers!")
@@ -35,11 +28,11 @@ const hero = {
 function update() {
     document.getElementsByTagName('h1')[0].innerText = 2;
     setTimeout( () => {
-        const userInput = prompt("You destroyed this enemy! Retreat?")
+        const userInput = prompt("You destroyed this enemy! Retreat? (Yes or No)")
         if (userInput === 'yes') {
             console.log("We will retreat and live to see another day.");
-            location.reload();
-        }
+            // location.reload();
+        } //if input is 'no' nothing happens - for now - i gave up due to a migraine and didn't continue oV
     }, 2000);
 }
 
@@ -76,18 +69,10 @@ const battle = function (hero, enemy) {
     }
 }
 
-
-// const aliens = [];
-
-// for(let i = 0; i < 6; i++) {
-//     aliens[i];
-// }
-
 console.log(hero)
 console.log(enemy)
 
 if (test === 'yes') {
     battle(hero, enemy);
     console.log('battle');
-    // if()
 }
