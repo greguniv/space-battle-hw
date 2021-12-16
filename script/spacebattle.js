@@ -32,7 +32,7 @@ function update() {
         if (userInput === 'yes') {
             console.log("We will retreat and live to see another day.");
             // location.reload();
-        } //if input is 'no' nothing happens - for now - i gave up due to a migraine and didn't continue oV
+        } //if input is 'no' nothing happens - for now
     }, 2000);
 }
 
